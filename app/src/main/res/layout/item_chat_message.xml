@@ -1,0 +1,163 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:paddingHorizontal="12dp"
+    android:paddingVertical="6dp">
+
+    <!-- USER MESSAGE BUBBLE -->
+    <LinearLayout
+        android:id="@+id/userBubbleContainer"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="end"
+        android:layout_marginStart="48dp"
+        android:background="@drawable/shape_search_bg"
+        android:backgroundTint="?attr/colorPrimary"
+        android:orientation="vertical"
+        android:paddingHorizontal="14dp"
+        android:paddingVertical="10dp"
+        android:visibility="gone"
+        tools:visibility="visible">
+
+        <TextView
+            android:id="@+id/userMessageText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="?attr/colorOnPrimary"
+            android:textSize="14sp"
+            tools:text="How do I setup Termux on S24 Ultra?" />
+    </LinearLayout>
+
+    <!-- ASSISTANT MESSAGE BUBBLE -->
+    <LinearLayout
+        android:id="@+id/assistantBubbleContainer"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="32dp"
+        android:orientation="vertical"
+        android:visibility="visible">
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center_vertical"
+            android:orientation="horizontal">
+
+            <ImageView
+                android:layout_width="18dp"
+                android:layout_height="18dp"
+                android:contentDescription="@null"
+                android:src="@drawable/ic_ai_assistant"
+                app:tint="?attr/colorPrimary" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="6dp"
+                android:text="AI Assistant"
+                android:textAppearance="@style/TextAppearance.Material3.LabelMedium"
+                android:textColor="?attr/colorPrimary" />
+        </LinearLayout>
+
+        <com.google.android.material.card.MaterialCardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="4dp"
+            app:cardCornerRadius="16dp"
+            app:cardElevation="1dp"
+            app:strokeColor="?attr/colorOutlineVariant"
+            app:strokeWidth="1dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:padding="12dp">
+
+                <TextView
+                    android:id="@+id/assistantMessageText"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:lineSpacingMultiplier="1.2"
+                    android:textIsSelectable="true"
+                    android:textSize="14sp"
+                    tools:text="To connect Termux on your Galaxy S24 Ultra, run `termux-setup-storage`." />
+
+                <!-- ONE-TAP COPY COMMAND FOR TERMUX -->
+                <LinearLayout
+                    android:id="@+id/copyCommandContainer"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:background="@drawable/shape_search_bg"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal"
+                    android:paddingHorizontal="10dp"
+                    android:paddingVertical="6dp"
+                    android:visibility="gone"
+                    tools:visibility="visible">
+
+                    <ImageView
+                        android:layout_width="16dp"
+                        android:layout_height="16dp"
+                        android:contentDescription="@null"
+                        android:src="@drawable/ic_terminal"
+                        app:tint="?attr/colorPrimary" />
+
+                    <TextView
+                        android:id="@+id/extractedCommandText"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginHorizontal="8dp"
+                        android:layout_weight="1"
+                        android:ellipsize="middle"
+                        android:fontFamily="monospace"
+                        android:maxLines="2"
+                        android:textSize="12sp"
+                        tools:text="termux-setup-storage" />
+
+                    <com.google.android.material.button.MaterialButton
+                        android:id="@+id/btnCopyCommand"
+                        style="@style/Widget.Material3.Button.TonalButton"
+                        android:layout_width="wrap_content"
+                        android:layout_height="32dp"
+                        android:minWidth="0dp"
+                        android:paddingHorizontal="10dp"
+                        android:paddingVertical="0dp"
+                        android:text="Copy"
+                        android:textSize="11sp"
+                        app:icon="@drawable/ic_copy"
+                        app:iconSize="14dp" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="6dp"
+                    android:gravity="end"
+                    android:orientation="horizontal">
+
+                    <com.google.android.material.button.MaterialButton
+                        android:id="@+id/btnCopyEntireMessage"
+                        style="@style/Widget.Material3.Button.TextButton"
+                        android:layout_width="wrap_content"
+                        android:layout_height="32dp"
+                        android:minWidth="0dp"
+                        android:paddingHorizontal="8dp"
+                        android:paddingVertical="0dp"
+                        android:text="Copy text"
+                        android:textSize="11sp"
+                        app:icon="@drawable/ic_copy"
+                        app:iconSize="12dp" />
+                </LinearLayout>
+
+            </LinearLayout>
+        </com.google.android.material.card.MaterialCardView>
+
+    </LinearLayout>
+
+</LinearLayout>

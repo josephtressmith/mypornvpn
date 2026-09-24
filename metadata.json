@@ -1,0 +1,8 @@
+{
+  "name": "mypornvpn",
+  "description": "Imported from GitHub: josephtressmith/searchvpn",
+  "requestFramePermissions": [],
+  "majorCapabilities": [
+    "MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"
+  ]
+}

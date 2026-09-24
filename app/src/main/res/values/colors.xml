@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="brand">#6C5CE7</color>
+    <color name="brand_dark">#5A4BD1</color>
+    <color name="ic_launcher_background">#1A1B2E</color>
+
+    <!-- Matrix Green (Movie) -->
+    <color name="theme_matrix_primary">#00E676</color>
+    <color name="theme_matrix_secondary">#00B0FF</color>
+
+    <!-- Blade Runner Cyberpunk (Movie) -->
+    <color name="theme_bladerunner_primary">#FF007F</color>
+    <color name="theme_bladerunner_secondary">#FF8A00</color>
+
+    <!-- Interstellar Gold (Movie) -->
+    <color name="theme_interstellar_primary">#FFB300</color>
+    <color name="theme_interstellar_secondary">#FFD54F</color>
+
+    <!-- Nordic Aurora (Landscape) -->
+    <color name="theme_aurora_primary">#00F5D4</color>
+    <color name="theme_aurora_secondary">#00BBF9</color>
+
+    <!-- Tokyo Night (Scene) -->
+    <color name="theme_tokyo_primary">#A855F7</color>
+    <color name="theme_tokyo_secondary">#F43F5E</color>
+
+    <!-- Sunset Horizon (Landscape) -->
+    <color name="theme_sunset_primary">#F97316</color>
+    <color name="theme_sunset_secondary">#FBBF24</color>
+
+    <!-- Crimson Cinema (Action Movie) -->
+    <color name="theme_crimson_primary">#EF4444</color>
+    <color name="theme_crimson_secondary">#B91C1C</color>
+</resources>

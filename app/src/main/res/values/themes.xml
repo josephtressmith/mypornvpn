@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Base Theme (Default Violet) -->
+    <style name="Theme.SearchVpn" parent="Theme.Material3.DayNight.NoActionBar">
+        <item name="colorPrimary">@color/brand</item>
+        <item name="colorSecondary">@color/brand_dark</item>
+        <item name="android:statusBarColor">@android:color/transparent</item>
+    </style>
+
+    <!-- Matrix Green (Movie) -->
+    <style name="Theme.SearchVpn.Matrix" parent="Theme.Material3.DayNight.NoActionBar">
+        <item name="colorPrimary">@color/theme_matrix_primary</item>
+        <item name="colorSecondary">@color/theme_matrix_secondary</item>
+        <item name="android:statusBarColor">@android:color/transparent</item>
+    </style>
+
+    <!-- Blade Runner Synthwave (Movie) -->
+    <style name="Theme.SearchVpn.BladeRunner" parent="Theme.Material3.DayNight.NoActionBar">
+        <item name="colorPrimary">@color/theme_bladerunner_primary</item>
+        <item name="colorSecondary">@color/theme_bladerunner_secondary</item>
+        <item name="android:statusBarColor">@android:color/transparent</item>
+    </style>
+
+    <!-- Interstellar Gold (Movie) -->
+    <style name="Theme.SearchVpn.Interstellar" parent="Theme.Material3.DayNight.NoActionBar">
+        <item name="colorPrimary">@color/theme_interstellar_primary</item>
+        <item name="colorSecondary">@color/theme_interstellar_secondary</item>
+        <item name="android:statusBarColor">@android:color/transparent</item>
+    </style>
+
+    <!-- Nordic Aurora (Landscape) -->
+    <style name="Theme.SearchVpn.Aurora" parent="Theme.Material3.DayNight.NoActionBar">
+        <item name="colorPrimary">@color/theme_aurora_primary</item>
+        <item name="colorSecondary">@color/theme_aurora_secondary</item>
+        <item name="android:statusBarColor">@android:color/transparent</item>
+    </style>
+
+    <!-- Tokyo Night (Scene) -->
+    <style name="Theme.SearchVpn.Tokyo" parent="Theme.Material3.DayNight.NoActionBar">
+        <item name="colorPrimary">@color/theme_tokyo_primary</item>
+        <item name="colorSecondary">@color/theme_tokyo_secondary</item>
+        <item name="android:statusBarColor">@android:color/transparent</item>
+    </style>
+
+    <!-- Sunset Horizon (Landscape) -->
+    <style name="Theme.SearchVpn.Sunset" parent="Theme.Material3.DayNight.NoActionBar">
+        <item name="colorPrimary">@color/theme_sunset_primary</item>
+        <item name="colorSecondary">@color/theme_sunset_secondary</item>
+        <item name="android:statusBarColor">@android:color/transparent</item>
+    </style>
+
+    <!-- Crimson Cinema (Movie) -->
+    <style name="Theme.SearchVpn.Crimson" parent="Theme.Material3.DayNight.NoActionBar">
+        <item name="colorPrimary">@color/theme_crimson_primary</item>
+        <item name="colorSecondary">@color/theme_crimson_secondary</item>
+        <item name="android:statusBarColor">@android:color/transparent</item>
+    </style>
+</resources>

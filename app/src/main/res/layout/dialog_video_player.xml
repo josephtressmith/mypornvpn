@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#000000">
+
+    <VideoView
+        android:id="@+id/playerVideoView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_centerInParent="true" />
+
+    <ProgressBar
+        android:id="@+id/playerLoadingProgress"
+        style="?android:attr/progressBarStyleLarge"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true" />
+
+    <!-- Top Overlay Bar -->
+    <LinearLayout
+        android:id="@+id/playerTopBar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:background="#80000000"
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        android:padding="8dp">
+
+        <ImageButton
+            android:id="@+id/playerCloseButton"
+            android:layout_width="48dp"
+            android:layout_height="48dp"
+            android:background="?attr/selectableItemBackgroundBorderless"
+            android:contentDescription="@string/close"
+            android:src="@android:drawable/ic_menu_close_clear_cancel"
+            app:tint="#FFFFFF" />
+
+        <TextView
+            android:id="@+id/playerTitleText"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_weight="1"
+            android:ellipsize="end"
+            android:singleLine="true"
+            android:textColor="#FFFFFF"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            tools:text="Video Title Here" />
+
+        <ImageButton
+            android:id="@+id/playerExternalButton"
+            android:layout_width="48dp"
+            android:layout_height="48dp"
+            android:background="?attr/selectableItemBackgroundBorderless"
+            android:contentDescription="@string/open_external"
+            android:src="@android:drawable/ic_menu_share"
+            app:tint="#FFFFFF" />
+    </LinearLayout>
+
+    <!-- Bottom Controls Bar -->
+    <LinearLayout
+        android:id="@+id/playerBottomControls"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:background="#80000000"
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        android:padding="8dp">
+
+        <ImageButton
+            android:id="@+id/playerPlayPauseButton"
+            android:layout_width="48dp"
+            android:layout_height="48dp"
+            android:background="?attr/selectableItemBackgroundBorderless"
+            android:contentDescription="@string/play_pause"
+            android:src="@android:drawable/ic_media_pause"
+            app:tint="#FFFFFF" />
+
+        <TextView
+            android:id="@+id/playerCurrentTimeText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="4dp"
+            android:textColor="#FFFFFF"
+            android:textSize="12sp"
+            tools:text="00:00" />
+
+        <SeekBar
+            android:id="@+id/playerSeekBar"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:max="100" />
+
+        <TextView
+            android:id="@+id/playerTotalTimeText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="8dp"
+            android:textColor="#FFFFFF"
+            android:textSize="12sp"
+            tools:text="10:30" />
+    </LinearLayout>
+
+</RelativeLayout>

@@ -1,0 +1,211 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="?attr/colorSurface"
+    android:orientation="vertical">
+
+    <!-- DRAG HANDLE -->
+    <View
+        android:layout_width="36dp"
+        android:layout_height="4dp"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="8dp"
+        android:layout_marginBottom="4dp"
+        android:background="?attr/colorOutline" />
+
+    <!-- HEADER -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        android:paddingHorizontal="16dp"
+        android:paddingVertical="8dp">
+
+        <ImageView
+            android:layout_width="28dp"
+            android:layout_height="28dp"
+            android:contentDescription="@null"
+            android:src="@drawable/ic_ai_assistant"
+            app:tint="?attr/colorPrimary" />
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="12dp"
+            android:layout_weight="1"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="SearchVPN AI Agent"
+                android:textAppearance="@style/TextAppearance.Material3.TitleMedium" />
+
+            <TextView
+                android:id="@+id/modelStatusText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Powered by Gemini 3.5 Flash &amp; S24 Ultra Assistant"
+                android:textAppearance="@style/TextAppearance.Material3.BodySmall"
+                android:textColor="?attr/colorOutline" />
+        </LinearLayout>
+
+        <ImageButton
+            android:id="@+id/btnClearChat"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:background="?attr/selectableItemBackgroundBorderless"
+            android:contentDescription="Clear conversation"
+            android:src="@drawable/ic_refresh"
+            app:tint="?attr/colorOnSurfaceVariant" />
+
+        <ImageButton
+            android:id="@+id/btnCloseAssistant"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:background="?attr/selectableItemBackgroundBorderless"
+            android:contentDescription="Close assistant"
+            android:src="@drawable/ic_arrow_back"
+            app:tint="?attr/colorOnSurfaceVariant" />
+    </LinearLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="?attr/colorOutlineVariant" />
+
+    <!-- QUICK PROMPT CHIPS SCROLL -->
+    <HorizontalScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:clipToPadding="false"
+        android:paddingHorizontal="12dp"
+        android:paddingVertical="6dp"
+        android:scrollbars="none">
+
+        <com.google.android.material.chip.ChipGroup
+            android:id="@+id/promptChipGroup"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:singleLine="true">
+
+            <com.google.android.material.chip.Chip
+                android:id="@+id/chipTermuxStorage"
+                style="@style/Widget.Material3.Chip.Suggestion"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="⚡ Termux Storage on S24" />
+
+            <com.google.android.material.chip.Chip
+                android:id="@+id/chipWhereDownloads"
+                style="@style/Widget.Material3.Chip.Suggestion"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="📁 Where are Downloads?" />
+
+            <com.google.android.material.chip.Chip
+                android:id="@+id/chipPythonGit"
+                style="@style/Widget.Material3.Chip.Suggestion"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="💻 Coding: Python &amp; Git" />
+
+            <com.google.android.material.chip.Chip
+                android:id="@+id/chipPlayMpv"
+                style="@style/Widget.Material3.Chip.Suggestion"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="🎬 Play in Termux (mpv)" />
+
+            <com.google.android.material.chip.Chip
+                android:id="@+id/chipWireguard"
+                style="@style/Widget.Material3.Chip.Suggestion"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="🛡️ WireGuard VPN Guide" />
+
+            <com.google.android.material.chip.Chip
+                android:id="@+id/chipThemes"
+                style="@style/Widget.Material3.Chip.Suggestion"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="🎨 Custom Wallpapers" />
+        </com.google.android.material.chip.ChipGroup>
+    </HorizontalScrollView>
+
+    <!-- CHAT MESSAGES RECYCLER -->
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/chatRecyclerView"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:clipToPadding="false"
+        android:paddingVertical="8dp" />
+
+    <!-- LOADING / TYPING INDICATOR -->
+    <LinearLayout
+        android:id="@+id/typingIndicatorContainer"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        android:paddingHorizontal="16dp"
+        android:paddingVertical="6dp"
+        android:visibility="gone"
+        tools:visibility="visible">
+
+        <ProgressBar
+            android:layout_width="16dp"
+            android:layout_height="16dp"
+            android:indeterminate="true" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:text="AI Assistant is thinking..."
+            android:textAppearance="@style/TextAppearance.Material3.BodySmall"
+            android:textColor="?attr/colorOutline" />
+    </LinearLayout>
+
+    <!-- INPUT BAR -->
+    <LinearLayout
+        android:id="@+id/inputBarContainer"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        android:paddingHorizontal="12dp"
+        android:paddingVertical="8dp">
+
+        <EditText
+            android:id="@+id/chatInput"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:background="@drawable/shape_search_bg"
+            android:hint="Ask anything: Termux, coding, app help..."
+            android:imeOptions="actionSend"
+            android:importantForAutofill="no"
+            android:inputType="textCapSentences|textMultiLine"
+            android:maxLines="4"
+            android:paddingHorizontal="16dp"
+            android:paddingVertical="10dp"
+            android:textAppearance="@style/TextAppearance.Material3.BodyMedium" />
+
+        <com.google.android.material.floatingactionbutton.FloatingActionButton
+            android:id="@+id/btnSendMessage"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:contentDescription="Send message"
+            android:src="@drawable/ic_send"
+            app:fabCustomSize="44dp"
+            app:tint="?attr/colorOnPrimary" />
+    </LinearLayout>
+
+</LinearLayout>

@@ -1,0 +1,201 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <!-- Top Main Search Bar -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        android:paddingHorizontal="12dp"
+        android:paddingTop="8dp"
+        android:paddingBottom="4dp">
+
+        <EditText
+            android:id="@+id/queryInput"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:hint="@string/search_hint"
+            android:imeOptions="actionSearch"
+            android:importantForAutofill="no"
+            android:inputType="text"
+            android:singleLine="true" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/searchButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="6dp"
+            android:minWidth="0dp"
+            android:text="@string/search_action" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/downloadButton"
+            style="@style/Widget.Material3.Button.TonalButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="4dp"
+            android:minWidth="0dp"
+            android:text="@string/download_action"
+            app:icon="@drawable/ic_download" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/askAiButton"
+            style="@style/Widget.Material3.Button.TonalButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="4dp"
+            android:minWidth="0dp"
+            android:text="AI"
+            app:icon="@drawable/ic_ai_assistant" />
+    </LinearLayout>
+
+    <!-- Browser Controls & AdBlock Strip -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        android:paddingHorizontal="12dp"
+        android:paddingVertical="2dp">
+
+        <ImageButton
+            android:id="@+id/navBackButton"
+            android:layout_width="36dp"
+            android:layout_height="36dp"
+            android:background="?attr/selectableItemBackgroundBorderless"
+            android:contentDescription="@string/browser_back"
+            android:src="@drawable/ic_arrow_back"
+            app:tint="?attr/colorOnSurface" />
+
+        <ImageButton
+            android:id="@+id/navForwardButton"
+            android:layout_width="36dp"
+            android:layout_height="36dp"
+            android:layout_marginStart="2dp"
+            android:background="?attr/selectableItemBackgroundBorderless"
+            android:contentDescription="@string/browser_forward"
+            android:src="@drawable/ic_arrow_forward"
+            app:tint="?attr/colorOnSurface" />
+
+        <ImageButton
+            android:id="@+id/navRefreshButton"
+            android:layout_width="36dp"
+            android:layout_height="36dp"
+            android:layout_marginStart="2dp"
+            android:background="?attr/selectableItemBackgroundBorderless"
+            android:contentDescription="@string/browser_refresh"
+            android:src="@drawable/ic_refresh"
+            app:tint="?attr/colorOnSurface" />
+
+        <com.google.android.material.chip.Chip
+            android:id="@+id/adBlockChip"
+            style="@style/Widget.Material3.Chip.Filter"
+            android:layout_width="wrap_content"
+            android:layout_height="32dp"
+            android:layout_marginStart="8dp"
+            android:checked="true"
+            android:text="@string/adblock_on"
+            app:chipIcon="@drawable/ic_shield" />
+
+        <View
+            android:layout_width="0dp"
+            android:layout_height="1dp"
+            android:layout_weight="1" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/openButton"
+            style="@style/Widget.Material3.Button.TextButton"
+            android:layout_width="wrap_content"
+            android:layout_height="36dp"
+            android:minWidth="0dp"
+            android:text="@string/open_label" />
+    </LinearLayout>
+
+    <!-- Recent Searches Chips Bar -->
+    <HorizontalScrollView
+        android:id="@+id/historyScrollView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingHorizontal="12dp"
+        android:paddingBottom="4dp"
+        android:scrollbars="none">
+
+        <LinearLayout
+            android:id="@+id/historyContainer"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center_vertical"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="6dp"
+                android:text="@string/recent_searches_title"
+                android:textAppearance="?attr/textAppearanceBodySmall"
+                android:textColor="?attr/colorOutline" />
+
+            <com.google.android.material.chip.ChipGroup
+                android:id="@+id/historyChipGroup"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:singleLine="true" />
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/clearHistoryButton"
+                style="@style/Widget.Material3.Button.TextButton"
+                android:layout_width="wrap_content"
+                android:layout_height="32dp"
+                android:layout_marginStart="4dp"
+                android:minWidth="0dp"
+                android:text="@string/clear_history"
+                android:textSize="11sp" />
+        </LinearLayout>
+    </HorizontalScrollView>
+
+    <!-- Site Tabs -->
+    <com.google.android.material.tabs.TabLayout
+        android:id="@+id/tabLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:tabGravity="start"
+        app:tabMode="scrollable" />
+
+    <!-- Web ViewPager Area -->
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1">
+
+        <androidx.viewpager2.widget.ViewPager2
+            android:id="@+id/pager"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+
+        <com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton
+            android:id="@+id/downloadFab"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom|end"
+            android:layout_margin="16dp"
+            android:text="@string/download_action"
+            app:icon="@drawable/ic_download" />
+
+        <TextView
+            android:id="@+id/emptyHint"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:gravity="center"
+            android:padding="24dp"
+            android:text="@string/tab_empty_hint"
+            android:visibility="gone" />
+    </FrameLayout>
+
+</LinearLayout>
