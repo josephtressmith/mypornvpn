@@ -7,6 +7,7 @@ import com.wireguard.android.backend.Tunnel
 import com.wireguard.config.BadConfigException
 import com.wireguard.config.Config
 import java.io.ByteArrayInputStream
+import java.io.File
 
 /**
  * Thin wrapper around the official WireGuard tunnel library
@@ -19,6 +20,14 @@ import java.io.ByteArrayInputStream
 class VpnController(context: Context) {
 
     private val appContext = context.applicationContext
+
+    init {
+        try {
+            File(appContext.cacheDir, "wg_uapi").mkdirs()
+            File("/data/data/${appContext.packageName}/cache/wg_uapi").mkdirs()
+        } catch (_: Throwable) {
+        }
+    }
 
     @Volatile
     var stateChangeListener: ((Tunnel.State) -> Unit)? = null

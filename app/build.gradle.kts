@@ -45,6 +45,12 @@ android {
         buildConfig = true
     }
 
+    packaging {
+        jniLibs {
+            pickFirsts += "**/libwg-go.so"
+        }
+    }
+
     compileOptions {
         sourceCompatibility = JavaVersion.VERSION_17
         targetCompatibility = JavaVersion.VERSION_17

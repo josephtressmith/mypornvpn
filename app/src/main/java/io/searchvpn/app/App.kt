@@ -33,6 +33,13 @@ class App : Application() {
         writeDiag("boot.txt", "boot " + now() + " pid=" + android.os.Process.myPid())
         instance = this
 
+        // Pre-create WireGuard UAPI directory in app cache so libwg-go never hits permission denied
+        try {
+            File(cacheDir, "wg_uapi").mkdirs()
+            File("/data/data/$packageName/cache/wg_uapi").mkdirs()
+        } catch (_: Throwable) {
+        }
+
         // Preload user's WireGuard VPN config so it is immediately ready to connect
         ConfigStore.importUserConfig(this)
     }

@@ -83,12 +83,8 @@ class SitePageAdapter(
                 ViewGroup.LayoutParams.MATCH_PARENT,
                 ViewGroup.LayoutParams.MATCH_PARENT
             )
-            // Enable hardware acceleration with safe fallback for virtual/Mesa graphics
-            try {
-                setLayerType(View.LAYER_TYPE_HARDWARE, null)
-            } catch (_: Throwable) {
-                setLayerType(View.LAYER_TYPE_SOFTWARE, null)
-            }
+            // Use default layer type (LAYER_TYPE_NONE) so WebView renders directly to the window canvas
+            setLayerType(View.LAYER_TYPE_NONE, null)
         }
         webView.settings.apply {
             javaScriptEnabled = true
